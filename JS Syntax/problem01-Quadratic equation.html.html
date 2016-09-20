@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem01 - Quadratic equation</title>
+</head>
+<body>
+    <form>
+        <input type="text" size="1" value="2" id="a" />x<sup>2</sup> +
+        <input type="text" size="1" value="2" id="b" />x +
+        <input type="text" size="1" value="2" id="c" /> = 0
+        <input type="button" value="Calculate" onclick="calculateEq()"/>
+    </form>
+    <br />
+    <div id="result"></div>
+</body>
+<script>
+    function calculateEq() {
+        var a = document.getElementById('a').value;
+        var b = document.getElementById('b').value;
+        var c = document.getElementById('c').value;
+        if(isNaN(a) || isNaN(b) || isNaN(c)) {
+            document.getElementById('result').innerHTML = "Please enter only NUMBERS!";
+        } else {
+            a = Number(a);
+            b = Number(b);
+            c = Number(c);
+            var result = '';
+            var d = Math.pow(b, 2) - (4 * a * c);
+            if(d > 0) {
+                result += 'x1 = ' + ((-b + Math.sqrt(d)) / (2 * a));
+                result += ' ; ';
+                result += 'x2 = ' + ((-b - Math.sqrt(d)) / (2 * a));
+            } else if (d === 0) {
+                result += 'x = ' + ((-b) / (2 * a));
+            } else {
+                result += 'No Real Roots!'
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+    }
+</script>
+</html>

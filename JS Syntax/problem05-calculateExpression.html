@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem05 - Calculate Expression</title>
+</head>
+<body>
+<center>
+    <form>
+        <input type="text" id="expression" /> <br /><br />
+        <input type="button" value="Eval Result" onclick="calculateEq()"/>
+    </form>
+    <br /><br />
+    <div id="result"></div>
+</center>
+</body>
+<script>
+    function calculateEq() {
+        var expression = document.getElementById('expression').value;
+        var result = eval(expression);
+        document.getElementById('result').innerHTML = result.toString();
+    }
+</script>
+</html>
